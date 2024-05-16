@@ -1,0 +1,84 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+import {  getRelativeLocaleUrlList } from 'astro:i18n';
+
+const localeUrls = getRelativeLocaleUrlList()
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Astro description" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+	<meta name="description" content="Matvey Aleksandrov — python developer, devops" />
+	<meta name="keywords" content="Matvey, Aleksandrov, Matvey Aleksandrov, arlcrow123, python developer, devops" />
+	<meta name="author" content="Matvey Aleksandrov" />
+	<meta property="og:title" content="arlcrow123 — Matvey Aleksandrov" />
+	<meta property="og:description" content="Matvey Aleksandrov — python developer, devops" />
+	<meta property="og:url" content="https://arlcrow.site" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="arlcrow123 — Matvey Aleksandrov" />
+	<meta name="twitter:description" content="Matvey Aleksandrov — python developer, devops" />
+	<meta name="generator" content={Astro.generator} />
+	<title>{title}</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="margin-0 padding-0 bg-black text-white text-lg font-mono w-full h-screen fixed">
+<main class="fixed w-full h-full flex justify-center items-center">
+	<div class="fixed w-full h-full z-0" id="particles-js"></div>
+	<div class="absolute top-0 right-0 m-4 text-white text-lg z-10 flex">
+		{localeUrls.map(s => (
+			<div>
+				{s === '/' ? (
+					<a href={s} class={Astro.url.pathname === '/' ? "flex group pointer-events-none" : "flex group"}>
+						<div class="mr-1 text-gray-500 group-hover:text-white">[</div>
+						<div class={Astro.url.pathname === '/' ? "mr-1 group-hover:text-gray-500 font-bold" : "mr-1 group-hover:text-gray-500"}>🇺🇸 en</div>
+						<div class="text-gray-500 group-hover:text-white">]</div>
+					</a>
+				) : s === '/ru/' ? (
+					<a href={s} class={Astro.url.pathname.startsWith('/ru') ? "flex group pointer-events-none" : "flex group"}>
+						<div class="mr-1 text-gray-500 group-hover:text-white">[</div>
+						<div class={Astro.url.pathname.startsWith('/ru') ? "mr-1 group-hover:text-gray-500 font-bold" : "mr-1 group-hover:text-gray-500"}>🇷🇺 ru</div>
+						<div class="text-gray-500 group-hover:text-white">]</div>
+					</a>
+				) : null}
+			</div>
+		))}
+	</div>
+	<slot />
+</main>
+</body>
+</html>
+
+<script is:inline src="/js/particles.js"></script>
+
+<script is:inline>
+	particlesJS.load('particles-js', '/js/particles.json', function () {
+		console.log('hi?');
+	});
+</script>
+
+<script is:inline>
+	const logo = document.getElementById("logo");
+	if (logo) {
+		logo.onclick = function () {
+			if (this.src.includes("/images/logo.svg")) {
+				this.src = "/images/happy.jpg";
+				this.classList.add("rounded-[50%]");
+			} else {
+				this.src = "/images/logo.svg";
+				this.classList.remove("rounded-[50%]");
+			}
+		};
+	}
+</script>

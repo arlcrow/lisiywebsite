@@ -1,0 +1,10 @@
+services:
+  lisiywebsite:
+    restart: unless-stopped
+    image: git.arlcrow.site/arlcrow123/lisiywebsite:1.0.0
+    networks:
+      - lisiywebsite
+
+networks:
+  lisiywebsite:
+    external: true
