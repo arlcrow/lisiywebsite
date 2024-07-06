@@ -1,0 +1,52 @@
+stages:
+  - docker_build
+  - deploy
+
+docker_build_master:
+  image: registry-mirror.arlcrow.site/library/docker:latest
+  services:
+    - registry-mirror.arlcrow.site/library/docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_REGISTRY: registry.arlcrow.site
+    IMAGE_NAME: arlcrow123/lisiywebsite
+  stage: docker_build
+  before_script:
+    - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_REGISTRY
+  script:
+    - docker build -t $DOCKER_REGISTRY/$IMAGE_NAME:latest .
+    - docker push $DOCKER_REGISTRY/$IMAGE_NAME:latest
+  only:
+    - master
+
+docker_build_other:
+  image: registry-mirror.arlcrow.site/library/docker:latest
+  services:
+    - registry-mirror.arlcrow.site/library/docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_REGISTRY: registry.arlcrow.site
+    IMAGE_NAME: arlcrow123/lisiywebsite
+  stage: docker_build
+  before_script:
+    - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_REGISTRY
+  script:
+    - docker build -t $DOCKER_REGISTRY/$IMAGE_NAME:$CI_COMMIT_BRANCH .
+    - docker push $DOCKER_REGISTRY/$IMAGE_NAME:$CI_COMMIT_BRANCH
+  except:
+    - master
+
+deploy_master:
+  stage: deploy
+  image:
+    name: registry.arlcrow.site/docker-images/arch-ssh:latest
+  before_script:
+    - eval $(ssh-agent -s)
+    - chmod 400 "$SSH_PRIVATE_KEY"
+    - cat "$SSH_PRIVATE_KEY" | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - ssh -o "StrictHostKeyChecking=no" -p 4544 $SSH_USER@$SSH_HOST "/home/$SSH_USER/docker/lisiywebsite/update.sh"
+  only:
+    - master
