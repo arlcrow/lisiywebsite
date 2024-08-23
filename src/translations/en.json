@@ -1,0 +1,128 @@
+{
+  "name": "Matvey Aleksandrov",
+  "photo": "Photo",
+  "personal_information": {
+    "title": "Personal Information",
+    "birthday": "November 23, 2008",
+    "years_old": "years old",
+    "location": "Sosnovy Bor, Russia",
+    "education": "Basic General Education",
+    "languages": "Russian (native), English (B2)"
+  },
+  "contacts": {
+    "title": "Contacts",
+    "telegram": "@arlcrow123",
+    "email": "matvey@arlcrow.site"
+  },
+  "skills": {
+    "title": "Skills",
+    "devops": {
+      "title": "DevOps",
+      "experience": "Experience: less than a year",
+      "items": {
+        "linux": "Linux",
+        "linux_details": "Arch Linux, NixOS, Debian",
+        "containerization_orchestration": "Containerization and Orchestration",
+        "containerization_orchestration_details": "Kubernetes, Docker",
+        "monitoring": "Monitoring",
+        "monitoring_details": "Prometheus, Grafana",
+        "automation": "Automation",
+        "automation_details": "Ansible, Terraform",
+        "webservers_proxy": "Web Servers and Proxy",
+        "webservers_proxy_details": "nginx",
+        "databases": "Databases",
+        "databases_details": "PostgreSQL",
+        "vcs": "VCS",
+        "vcs_details": "Git, GitLab, Gitea (Forgejo)",
+        "self_hosting": "Self-Hosting",
+        "self_hosting_details": "Nextcloud, mailcow, authentik"
+      }
+    },
+    "python": {
+      "title": "Python",
+      "experience": "Experience: over 3 years",
+      "frameworks_libraries": "Frameworks and Libraries",
+      "frameworks_libraries_details": "asyncio, SQLAlchemy, rich",
+      "telegram_bots": {
+        "title": "Telegram Bots",
+        "framework": "Framework",
+        "framework_details": "aiogram",
+        "libraries": "Libraries",
+        "libraries_details": "aiogram_dialog, fluentogram"
+      },
+      "backend": {
+        "title": "Backend",
+        "frameworks": "Main Frameworks",
+        "frameworks_details": "FastAPI, Flask"
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "zytro_vpn": {
+      "title": "Zytro VPN",
+      "date": "Q2 2023 — Present",
+      "description": "VPN service for anonymity and security online.",
+      "telegram_bot": {
+        "title": "Telegram Bot",
+        "description": "Developed in Python using aiogram, aiogram_dialog, fluentogram, and SQLAlchemy for interaction via Telegram."
+      },
+      "vpn_servers": {
+        "title": "VPN Servers",
+        "description": "Running on NixOS with Docker Compose and Xray-core."
+      },
+      "buttons": {
+        "bot": "Bot",
+        "project_channel": "Project Channel",
+        "source_code": "Source Code"
+      }
+    },
+    "self_hosting": {
+      "title": "Self-Hosted IT Infrastructure",
+      "date": "≈2020 — Present",
+      "description": "Assembled and configured my own server, including:",
+      "p1": "Installation and configuration of NixOS",
+      "p2": "Services via Docker Compose",
+      "p3": "Proxying services through nginx",
+      "p4": "Monitoring with Prometheus and Grafana",
+      "p5": "Setting up GitLab for development and support of personal projects",
+      "p6": "Data storage organization with Nextcloud and mail through mailcow",
+      "p7": "SSO implementation via Authentik",
+      "p8": "Installation and configuration of OpenWrt on the router with a firewall and WireGuard for secure SSH access to the infrastructure from outside"
+    }
+  },
+  "courses": {
+    "title": "Completed Courses",
+    "telegram_bots_course": {
+      "title": "Telegram Bots in Python: Advanced Level",
+      "provider_date": "Stepik, Q2 2024"
+    },
+    "devops_course": {
+      "title": "DevOps Engineer from Scratch",
+      "provider_date": "Merion Academy, Q3 2024"
+    }
+  },
+  "achievements": {
+    "title": "Achievements",
+    "profile_achievements": {
+      "title": "Profile Achievements",
+      "description": "Prize winner at the 42nd International Conference 'School Informatics and Sustainable Development Issues'",
+      "year": "2022-2023 academic year",
+      "place": "2nd place",
+      "project": "Project: Zytro VPN"
+    },
+    "sports_achievements": {
+      "title": "Sports Achievements",
+      "p1": "1st place, 3 second places, and 4 third places in bench press without equipment and Russian bench press at national and international levels.",
+      "p2": "Participation in WRPF World Cups in 2023 and 2024 and the World Championship of the Russian Bench Press Federation in 2023.",
+      "p3": "Member of international powerlifting federations WRPF and IPL, as well as the Russian Bench Press Federation.",
+      "p4": "Record holder in Leningrad Oblast in bench press without equipment WRPF."
+    }
+  },
+  "footer": {
+    "license": "License",
+    "source_code": "Source Code"
+  },
+  "certificate": "Certificate",
+  "diploma": "Diploma"
+}

@@ -7,18 +7,18 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="description" content="Матвей Александров — Python разработчик, DevOps" />
-		<meta name="keywords" content="Матвей, Александров, Матвей Александров, arlcrow123, Python разработчик, DevOps" />
-		<meta name="author" content="Матвей Александров" />
-		<meta property="og:title" content="Матвей Александров" />
-		<meta property="og:description" content="Матвей Александров — Python разработчик, DevOps" />
+		<meta name="description" content="Matvey Aleksandrov — arlcrow123" />
+		<meta name="keywords" content="Матвей, Александров, Матвей Александров, arlcrow123, Python разработчик, DevOps, Matvey Aleksandrov, Matvey, Aleksandrov" />
+		<meta name="author" content="Matvey Aleksandrov" />
+		<meta property="og:title" content="Matvey Aleksandrov" />
+		<meta property="og:description" content="Matvey Aleksandrov — arlcrow123" />
 		<meta property="og:url" content="https://arlcrow.site" />
-		<meta name="twitter:title" content="Матвей Александров" />
-		<meta name="twitter:description" content="Матвей Александров — Python разработчик, DevOps" />
+		<meta name="twitter:title" content="Matvey Aleksandrov" />
+		<meta name="twitter:description" content="Matvey Aleksandrov — arlcrow123" />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,12 +31,15 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="dark:bg-neutral-950 dark:text-white">
+	<body class="bg-lisiy-bg-950 text-lisiy-bg-100">
 		<slot />
 	</body>
 </html>
 <style is:global>
 	html {
 		font-family: "IBM Plex Sans", system-ui, sans-serif;
+	}
+	i .fa-duotone, .fa-duobebra {
+		color: #000;
 	}
 </style>
