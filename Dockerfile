@@ -1,15 +1,16 @@
-FROM node:lts AS build
+FROM oven/bun:latest AS build
+
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json bun.lockb ./
 
-RUN yarn install
+RUN bun install
 
 COPY . .
 
-RUN yarn build
+RUN bun run build
 
-FROM denoland/deno:alpine AS runtime
+FROM oven/bun:latest AS runtime
 
 ENV HOST=0.0.0.0
 ENV PORT=8085
@@ -18,4 +19,4 @@ EXPOSE 8085
 
 COPY --from=build /app /app
 
-CMD ["deno", "run", "--allow-net", "--allow-read", "--allow-env", "/app/dist/server/entry.mjs"]
+CMD ["bun", "run", "/app/dist/server/entry.mjs"]
