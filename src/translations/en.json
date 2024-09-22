@@ -14,6 +14,11 @@
     "telegram": "@arlcrow123",
     "email": "matvey@arlcrow.site"
   },
+  "donate": {
+    "title": "Donate",
+    "crypto_bot": "Crypto Bot (Int)",
+    "t_bank": "T-Bank (Russia)"
+  },
   "skills": {
     "title": "Skills",
     "devops": {
@@ -55,6 +60,17 @@
         "frameworks": "Main Frameworks",
         "frameworks_details": "FastAPI, Flask"
       }
+    }
+  },
+  "experience": {
+    "title": "Work experience",
+    "job_title": "Position",
+    "grade": "Grade",
+    "mts": {
+      "title": "MTS Digital",
+      "date": "September 2024 — present",
+      "job_title": "DevOps Engineer",
+      "grade": "Intern"
     }
   },
   "portfolio": {
@@ -113,10 +129,10 @@
     },
     "sports_achievements": {
       "title": "Sports Achievements",
-      "p1": "1st place, 3 second places, and 4 third places in bench press without equipment and Russian bench press at national and international levels.",
+      "p1": "2 first places, 3 second places, and 4 third places in bench press without equipment and Russian bench press at national and international levels.",
       "p2": "Participation in WRPF World Cups in 2023 and 2024 and the World Championship of the Russian Bench Press Federation in 2023.",
       "p3": "Member of international powerlifting federations WRPF and IPL, as well as the Russian Bench Press Federation.",
-      "p4": "Record holder in Leningrad Oblast in bench press without equipment WRPF."
+      "p4": "Record holder in Leningradskaya oblast' in bench press without equipment WRPF."
     }
   },
   "footer": {
