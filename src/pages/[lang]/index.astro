@@ -11,7 +11,9 @@ const age = today.getMonth() > birthDate.getMonth() || (today.getMonth() === bir
 const year = today.getFullYear();
 
 let locale = Astro.currentLocale;
+console.log(locale)
 let l10n = await getLocaleJson(locale as string);
+console.log(l10n)
 ---
 
 <Layout title={l10n.name} lang={locale}>
@@ -30,9 +32,6 @@ let l10n = await getLocaleJson(locale as string);
                         </div>
                         <div class="p-2 border-2 rounded-md flex items-center">
                             <i class="fa-solid fa-location-dot mr-1"></i> {l10n.personal_information.location}
-                        </div>
-                        <div class="p-2 border-2 rounded-md flex items-center">
-                            <i class="fa-solid fa-graduation-cap mr-1"></i> {l10n.personal_information.education}
                         </div>
                         <div class="p-2 border-2 rounded-md flex items-center">
                             <i class="fa-solid fa-language mr-1"></i>{l10n.personal_information.languages}
@@ -109,14 +108,29 @@ let l10n = await getLocaleJson(locale as string);
         </section>
 
         <section class="mt-6">
-            <h2 class="text-3xl font-bold mb-4 flex items-center"><i class="text-lisiy-accent-400 fa-solid fa-briefcase mr-2"></i> {l10n.experience.title}</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <h2 class="text-3xl font-bold mb-4 flex items-center">
+                <i class="text-lisiy-accent-400 fa-solid fa-briefcase mr-2"></i>
+                {l10n.experience.title}
+            </h2>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-[repeat(auto-fit,minmax(0,1fr))]">
                 <div class="flex flex-col p-4 border-2 rounded-lg mb-4">
                     <h3 class="text-2xl font-semibold items-center mb-1"><i class="fa-solid fa-tag"></i> {l10n.experience.mts.title}</h3>
                     <p class="text-sm font-normal text-gray-500 mb-4">{l10n.experience.mts.date}</p>
                     <ul class="fa-ul ml-6 space-y-2">
-                        <li><span class="fa-li"><i class="fa-solid fa-circle-dollar-to-slot text-lisiy-accent-500"></i></span> <span class="font-medium">{l10n.experience.job_title}:</span> {l10n.experience.mts.job_title}</li>
-                        <li><span class="fa-li"><i class="fa-solid fa-user-graduate text-lisiy-accent-500"></i></span> <span class="font-medium">{l10n.experience.grade}:</span> {l10n.experience.mts.grade}</li>
+                        <li>
+                    <span class="fa-li">
+                        <i class="fa-solid fa-circle-dollar-to-slot text-lisiy-accent-500"></i>
+                    </span>
+                            <span class="font-medium">{l10n.experience.job_title}:</span>
+                            {l10n.experience.mts.job_title}
+                        </li>
+                        <li>
+                    <span class="fa-li">
+                        <i class="fa-solid fa-user-graduate text-lisiy-accent-500"></i>
+                    </span>
+                            <span class="font-medium">{l10n.experience.grade}:</span>
+                            {l10n.experience.mts.grade}
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -173,12 +187,18 @@ let l10n = await getLocaleJson(locale as string);
         </section>
 
         <section class="mt-6">
-            <h2 class="text-3xl font-bold mb-4 flex items-center"><i class="text-lisiy-accent-400 fa-solid fa-graduation-cap mr-2"></i> {l10n.courses.title}</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <h2 class="text-3xl font-bold mb-4 flex items-center"><i class="text-lisiy-accent-400 fa-solid fa-graduation-cap mr-2"></i> {l10n.education.title}</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
                 <div class="flex flex-col items-center">
-                    <div class="p-4 border-2 rounded-lg mb-4 w-full">
-                        <h3 class="text-2xl font-semibold mb-2"><i class="fa-brands fa-telegram"></i> {l10n.courses.telegram_bots_course.title}</h3>
-                        <p class="text-sm font-normal text-gray-500 mb-4">{l10n.courses.telegram_bots_course.provider_date}</p>
+                    <div class="p-4 border-2 rounded-lg mb-4 w-full h-full">
+                        <h3 class="text-2xl font-semibold mb-2"><i class="fa-solid fa-school"></i> {l10n.education.school.title}</h3>
+                        <p class="text-sm font-normal text-gray-500 mb-4">{l10n.education.school.provider_date}</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="p-4 border-2 rounded-lg mb-4 w-full h-full">
+                        <h3 class="text-2xl font-semibold mb-2"><i class="fa-brands fa-telegram"></i> {l10n.education.telegram_bots_course.title}</h3>
+                        <p class="text-sm font-normal text-gray-500 mb-4">{l10n.education.telegram_bots_course.provider_date}</p>
                         <div class="bg-white text-black font-medium rounded-md p-2 size-fit">
                             <a class="focus:text-sky-800 hover:text-sky-800 transition flex items-center" href="https://stepik.org/a/153850">
                                 <i class="fa-solid fa-arrow-right mr-2"></i> stepik.org
@@ -187,9 +207,9 @@ let l10n = await getLocaleJson(locale as string);
                     </div>
                 </div>
                 <div class="flex flex-col items-center">
-                    <div class="p-4 border-2 rounded-lg mb-4 w-full flex-grow flex flex-col">
-                        <h3 class="text-2xl font-semibold mb-2"><i class="fa-solid fa-code"></i> {l10n.courses.devops_course.title}</h3>
-                        <p class="text-sm font-normal text-gray-500 mb-2">{l10n.courses.devops_course.provider_date}</p>
+                    <div class="p-4 border-2 rounded-lg mb-4 w-full h-full flex-grow flex flex-col">
+                        <h3 class="text-2xl font-semibold mb-2"><i class="fa-solid fa-code"></i> {l10n.education.devops_course.title}</h3>
+                        <p class="text-sm font-normal text-gray-500 mb-2">{l10n.education.devops_course.provider_date}</p>
                         <div class="flex flex-wrap mt-auto">
                             <div class="bg-white text-black font-medium rounded-md p-2 size-fit mr-2 mt-2">
                                 <a class="focus:text-sky-800 hover:text-sky-800 transition mr-2" href="https://wiki.merionet.ru/merion-academy/courses/devops-inzhener-s-nulya/"><i class="fa-solid fa-arrow-right mr-1"></i> wiki.merionet.ru</a>
@@ -227,7 +247,6 @@ let l10n = await getLocaleJson(locale as string);
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="flex flex-col">
                     <div class="p-3 border-2 border-gray-500 rounded-lg mb-4">
@@ -239,6 +258,7 @@ let l10n = await getLocaleJson(locale as string);
                             <li><span class="fa-li"><i class="fa-solid fa-globe text-lisiy-accent-500"></i></span> {l10n.achievements.sports_achievements.p2}</li>
                             <li><span class="fa-li"><i class="fa-solid fa-user-friends text-lisiy-accent-500"></i></span> {l10n.achievements.sports_achievements.p3}</li>
                             <li><span class="fa-li"><i class="fa-solid fa-medal text-lisiy-accent-500"></i></span> {l10n.achievements.sports_achievements.p4}</li>
+                            <li><span class="fa-li"><i class="fa-solid fa-people-group text-lisiy-accent-500"></i></span> {l10n.achievements.sports_achievements.p5}</li>
                         </ul>
                     </div>
                 </div>

@@ -6,8 +6,7 @@
     "birthday": "November 23, 2008",
     "years_old": "years old",
     "location": "Sosnovy Bor, Russia",
-    "education": "Basic General Education",
-    "languages": "Russian (native), English (B2)"
+    "languages": "Russian (native), English (B1)"
   },
   "contacts": {
     "title": "Contacts",
@@ -107,14 +106,18 @@
       "p8": "Installation and configuration of OpenWrt on the router with a firewall and WireGuard for secure SSH access to the infrastructure from outside"
     }
   },
-  "courses": {
-    "title": "Completed Courses",
+  "education": {
+    "title": "Education",
+    "school": {
+      "title": "School Education",
+      "provider_date": "MBOU School No. 6, Sosnovy Bor, Russia, 2015 — 2026"
+    },
     "telegram_bots_course": {
-      "title": "Telegram Bots in Python: Advanced Level",
+      "title": "Course: Telegram Bots in Python: Advanced Level",
       "provider_date": "Stepik, Q2 2024"
     },
     "devops_course": {
-      "title": "DevOps Engineer from Scratch",
+      "title": "Course: DevOps Engineer from Scratch",
       "provider_date": "Merion Academy, Q3 2024"
     }
   },
@@ -132,7 +135,8 @@
       "p1": "2 first places, 3 second places, and 4 third places in bench press without equipment and Russian bench press at national and international levels.",
       "p2": "Participation in WRPF World Cups in 2023 and 2024 and the World Championship of the Russian Bench Press Federation in 2023.",
       "p3": "Member of international powerlifting federations WRPF and IPL, as well as the Russian Bench Press Federation.",
-      "p4": "Record holder in Leningradskaya oblast' in bench press without equipment WRPF."
+      "p4": "Record holder in Leningradskaya oblast' in bench press without equipment WRPF.",
+      "p5": "Member of the Sosnovy Bor city bench press team \"Adrenalin\""
     }
   },
   "footer": {
