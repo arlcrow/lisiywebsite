@@ -19,4 +19,4 @@ EXPOSE 8085
 
 COPY --from=build /app /app
 
-CMD ["node", "run", "/app/dist/server/entry.mjs"]
+CMD ["node", "/app/dist/server/entry.mjs"]
