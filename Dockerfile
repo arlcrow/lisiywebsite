@@ -1,16 +1,16 @@
-FROM oven/bun:latest AS build
+FROM node:latest AS build
 
 WORKDIR /app
 
 COPY package.json bun.lockb ./
 
-RUN bun install
+RUN yarn install
 
 COPY . .
 
-RUN bun run build
+RUN yarn run build
 
-FROM oven/bun:latest AS runtime
+FROM node:latest AS runtime
 
 ENV HOST=0.0.0.0
 ENV PORT=8085
@@ -19,4 +19,4 @@ EXPOSE 8085
 
 COPY --from=build /app /app
 
-CMD ["bun", "run", "/app/dist/server/entry.mjs"]
+CMD ["node", "run", "/app/dist/server/entry.mjs"]
