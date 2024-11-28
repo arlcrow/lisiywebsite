@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getLocaleJson } from "../../functions/translations.ts";
+import { Picture } from 'astro:assets';
+import myPhoto from '/public/myphoto.png';
 
 const birthDate = new Date('2008-11-23');
 const today = new Date();
@@ -12,13 +14,20 @@ const year = today.getFullYear();
 
 let locale = Astro.currentLocale;
 let l10n = await getLocaleJson(locale as string);
+
 ---
 
 <Layout title={l10n.name} lang={locale}>
     <div class="mx-auto max-w-screen-lg px-4 mt-6">
         <div class="flex flex-col items-center mb-6">
             <div class="flex-shrink-0 mb-4 flex flex-col items-center">
-                <img class="h-[12.5rem] md:h-[25vh] object-contain opacity-80 rounded-full" src="https://gravatar.com/avatar/ee7a5ec1bc1c4bd15dcc63baeacc8677c97d050e97448e292c9c3d2dc493556d?size=512" alt={l10n.photo} />
+                <Picture
+                        src={myPhoto}
+                        alt={l10n.photo}
+                        formats={['avif', 'webp']}
+                        widths={[128, 256, 384, 512]}
+                        class="w-[12.5rem] h-[12.5rem] md:h-[25vh] md:w-[25vh] object-cover rounded-full"
+                />
                 <p class="text-4xl font-black text-center mt-4">{l10n.name}</p>
             </div>
             <div class="flex flex-col md:flex-row gap-4 w-full max-w-screen">
