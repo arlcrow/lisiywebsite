@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme'
+
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			fontFamily: {
+				sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
+			},
 			colors: {
 				'lisiy-accent': {
 					'50': '#fff9ec',
