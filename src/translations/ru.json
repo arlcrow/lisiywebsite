@@ -39,7 +39,7 @@
         "vcs": "VCS",
         "vcs_details": "Git, GitLab, Gitea (Forgejo)",
         "self_hosting": "Селф-хостинг",
-        "self_hosting_details": "Nextcloud, mailcow, authentik"
+        "self_hosting_details": "Nextcloud, mailcow, собственные проекты"
       }
     },
     "python": {
