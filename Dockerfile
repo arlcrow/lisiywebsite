@@ -2,21 +2,23 @@ FROM node:latest AS build
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json yarn.lock ./
 
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 COPY . .
 
-RUN yarn run build
+RUN yarn build
 
-FROM node:latest AS runtime
+FROM node:latest
+
+WORKDIR /app
 
 ENV HOST=0.0.0.0
 ENV PORT=8085
 
 EXPOSE 8085
 
-COPY --from=build /app /app
+COPY --from=build /app .
 
-CMD ["node", "/app/dist/server/entry.mjs"]
+CMD ["node", "dist/server/entry.mjs"]

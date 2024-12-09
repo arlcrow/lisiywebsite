@@ -2,7 +2,7 @@ stages:
   - build
   - deploy
 
-build_master:
+build:
   image: docker:latest
   services:
     - docker:dind
@@ -10,25 +10,19 @@ build_master:
   before_script:
     - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
   script:
-    - docker build -t $CI_REGISTRY_IMAGE:latest .
-    - docker push $CI_REGISTRY_IMAGE:latest
-  only:
-    - master
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "master" ]]; then
+        docker build --cache-from=$CI_REGISTRY_IMAGE:latest -t $CI_REGISTRY_IMAGE:latest .
+        docker push $CI_REGISTRY_IMAGE:latest
+      else
+        docker build --cache-from=$CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH -t $CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH .
+        docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH
+      fi
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"
+    - if: $CI_COMMIT_BRANCH != "master"
 
-build_other:
-  image: docker:latest
-  services:
-    - docker:dind
-  stage: build
-  before_script:
-    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
-  script:
-    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH .
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH
-  except:
-    - master
-
-deploy_master:
+deploy:
   stage: deploy
   image:
     name: kroniak/ssh-client:latest
