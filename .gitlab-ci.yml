@@ -1,30 +1,30 @@
 stages:
-  - docker_build
+  - build
   - deploy
 
-docker_build_master:
-  image: registry-mirror.arlcrow.site/library/docker:latest
+build_master:
+  image: docker:latest
   services:
-    - registry-mirror.arlcrow.site/library/docker:dind
-  stage: docker_build
+    - docker:dind
+  stage: build
   before_script:
-    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
   script:
-    - docker build -t $CI_REGISTRY/$CI_REGISTRY_USER/$CI_PROJECT_NAME:latest .
-    - docker push $CI_REGISTRY/$CI_REGISTRY_USER/$CI_PROJECT_NAME:latest
+    - docker build -t $CI_REGISTRY/$CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY/$CI_REGISTRY_IMAGE:latest
   only:
     - master
 
-docker_build_other:
-  image: registry-mirror.arlcrow.site/library/docker:latest
+build_other:
+  image: docker:latest
   services:
-    - registry-mirror.arlcrow.site/library/docker:dind
-  stage: docker_build
+    - docker:dind
+  stage: build
   before_script:
-    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
   script:
-    - docker build -t $CI_REGISTRY/$CI_REGISTRY_USER/$CI_PROJECT_NAME:$CI_COMMIT_BRANCH .
-    - docker push $CI_REGISTRY/$CI_REGISTRY_USER/$CI_PROJECT_NAME:$CI_COMMIT_BRANCH
+    - docker build -t $CI_REGISTRY/$CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH .
+    - docker push $CI_REGISTRY/$CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH
   except:
     - master
 
