@@ -31,8 +31,13 @@ build_other:
 deploy_master:
   stage: deploy
   image:
-    name: registry.arlcrow.site/docker-images/ubuntu:latest
+    name: kroniak/ssh-client:latest
+  before_script:
+    - eval $(ssh-agent -s)
+    - chmod 400 "$SSH_PRIVATE_KEY"
+    - ssh-add "$SSH_PRIVATE_KEY"
+    - cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
   script:
-    - echo passed
+    - ssh $SSH_OTHER $SSH_USER@$SSH_HOST $SSH_SCRIPT
   only:
     - master
