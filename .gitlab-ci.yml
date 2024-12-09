@@ -36,6 +36,7 @@ deploy_master:
     - eval $(ssh-agent -s)
     - chmod 400 "$SSH_PRIVATE_KEY"
     - ssh-add "$SSH_PRIVATE_KEY"
+    - mkdir ~/.ssh
     - cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
   script:
     - ssh $SSH_OTHER $SSH_USER@$SSH_HOST $SSH_SCRIPT
