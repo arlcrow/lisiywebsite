@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { getLocaleJson } from "../../functions/translations.ts";
 import { Picture } from 'astro:assets';
 import myPhoto from '/public/myphoto.png';
+import Button from "../../components/Button.astro";
 
 const birthDate = new Date('2008-11-23');
 const today = new Date();
@@ -95,19 +96,19 @@ let l10n = await getLocaleJson(locale as string);
                         <li><span class="fa-li"><i class="fa-solid fa-server text-lisiy-accent-400"></i></span> <span class="font-medium">{l10n.skills.devops.items.self_hosting}:</span> {l10n.skills.devops.items.self_hosting_details}</li>
                     </ul>
                 </div>
-                <div class="bg-lisiy-bg-950 flex flex-col p-4 border-2 border-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow mb-4">
+                <div class="bg-lisiy-bg-950 flex flex-col p-4 border-2 border-gray-800 rounded-lg mb-4">
                     <h3 class="text-2xl font-semibold flex items-center mb-2"><i class="fa-brands fa-python mr-2"></i> {l10n.skills.python.title}</h3>
                     <p class="text-sm font-normal text-gray-500 mb-4">{l10n.skills.python.experience}</p>
                     <ul class="fa-ul ml-6 space-y-2">
                         <li><span class="fa-li"><i class="fa-solid fa-brackets-curly text-lisiy-accent-500"></i></span> <span class="font-medium">{l10n.skills.python.frameworks_libraries}:</span> {l10n.skills.python.frameworks_libraries_details}</li>
                     </ul>
-                    <hr class="my-4 border-gray-600">
+                    <hr class="border rounded-lg my-4 border-gray-800">
                     <h4 class="text-xl font-semibold flex items-center mb-2"><i class="fa-brands fa-telegram mr-2"></i> {l10n.skills.python.telegram_bots.title}</h4>
                     <ul class="fa-ul ml-6 space-y-2">
                         <li><span class="fa-li"><i class="fa-solid fa-brackets-curly text-lisiy-accent-500"></i></span> <span class="font-medium">{l10n.skills.python.telegram_bots.framework}:</span> {l10n.skills.python.telegram_bots.framework_details}</li>
                         <li><span class="fa-li"><i class="fa-solid fa-book-blank text-lisiy-accent-500"></i></span> <span class="font-medium">{l10n.skills.python.telegram_bots.libraries}:</span> {l10n.skills.python.telegram_bots.libraries_details}</li>
                     </ul>
-                    <hr class="my-4 border-gray-600">
+                    <hr class="border rounded-lg my-4 border-gray-800">
                     <h4 class="text-xl font-semibold flex items-center mb-2"><i class="fa-solid fa-gear-code mr-2"></i> {l10n.skills.python.backend.title}</h4>
                     <ul class="fa-ul ml-6 space-y-2">
                         <li><span class="fa-li"><i class="fa-solid fa-book-blank text-lisiy-accent-500"></i></span> <span class="font-medium">{l10n.skills.python.backend.frameworks}:</span> {l10n.skills.python.backend.frameworks_details}</li>
@@ -157,32 +158,32 @@ let l10n = await getLocaleJson(locale as string);
                         <ul class="fa-ul ml-6 space-y-2">
                             <li>{l10n.portfolio.zytro_vpn.telegram_bot.description}</li>
                         </ul>
-                        <hr class="my-4 border-gray-600">
+                        <hr class="border rounded-lg my-4 border-gray-800">
                         <h4 class="text-xl font-semibold flex items-center mb-2"><i class="fa-solid fa-server mr-2 text-lisiy-accent-400"></i> {l10n.portfolio.zytro_vpn.vpn_servers.title}</h4>
                         <ul class="fa-ul ml-6 space-y-2">
                             <li>{l10n.portfolio.zytro_vpn.vpn_servers.description}</li>
                         </ul>
                         <div class="flex flex-wrap mt-auto">
                             <a href="https://t.me/zytro_bot">
-                                <div class="bg-gray-800 text-white focus:border-2 hover:border-2 focus:border-lisiy-accent-400 hover:border-lisiy-accent-400 border-2 border-gray-800 transition font-medium rounded-md p-2 size-fit mr-2 mt-2">
+                                <Button>
                                     <i class="fa-brands fa-telegram"></i> {l10n.portfolio.zytro_vpn.buttons.bot}
-                                </div>
+                                </Button>
                             </a>
                             <a href="https://t.me/zytro_news">
-                                <div class="bg-gray-800 text-white focus:border-2 hover:border-2 focus:border-lisiy-accent-400 hover:border-lisiy-accent-400 border-2 border-gray-800 transition font-medium rounded-md p-2 size-fit mr-2 mt-2">
+                                <Button>
                                     <i class="fa-brands fa-telegram"></i> {l10n.portfolio.zytro_vpn.buttons.project_channel}
-                                </div>
+                                </Button>
                             </a>
                             <a href="https://gitlab.arlcrow.site/zytro">
-                                <div class="bg-gray-800 text-white focus:border-2 hover:border-2 focus:border-lisiy-accent-400 hover:border-lisiy-accent-400 border-2 border-gray-800 transition font-medium rounded-md p-2 size-fit mr-2 mt-2">
+                                <Button>
                                     <i class="fa-brands fa-gitlab"></i> {l10n.portfolio.zytro_vpn.buttons.source_code}
-                                </div>
+                                </Button>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col flex-wrap items-center pt-2">
-                    <div class="bg-lisiy-bg-950 p-4 border-2 border-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow mb-4 w-full">
+                    <div class="bg-lisiy-bg-950 p-4 border-2 border-gray-800 rounded-lg mb-4 w-full">
                         <h3 class="text-2xl font-semibold flex items-center mb-2"><i class="fa-solid fa-server mr-2"></i> {l10n.portfolio.self_hosting.title}</h3>
                         <p class="text-sm font-normal text-gray-500 mb-4">{l10n.portfolio.self_hosting.date}</p>
                         <p class="mb-4">{l10n.portfolio.self_hosting.description}</p>
@@ -214,27 +215,28 @@ let l10n = await getLocaleJson(locale as string);
                     <div class="bg-lisiy-bg-950 p-4 border-2 border-gray-800 rounded-lg mb-4 w-full h-full">
                         <h3 class="text-2xl font-semibold mb-2"><i class="fa-brands fa-telegram"></i> {l10n.education.telegram_bots_course.title}</h3>
                         <p class="text-sm font-normal text-gray-500 mb-4">{l10n.education.telegram_bots_course.provider_date}</p>
-                        <a class="flex items-center" href="https://stepik.org/a/153850">
-                            <div class="bg-gray-800 text-white focus:border-2 hover:border-2 focus:border-lisiy-accent-400 hover:border-lisiy-accent-400 border-2 border-gray-800 transition font-medium rounded-md p-2 size-fit ">
+                        <div class="flex flex-grow items-end"><a href="https://stepik.org/a/153850">
+                            <Button>
                                 <i class="fa-solid fa-arrow-right mr-2"></i> stepik.org
-                            </div>
-                        </a>
+                            </Button>
+                        </a></div>
+
                     </div>
                 </div>
                 <div class="flex flex-col items-center">
                     <div class="bg-lisiy-bg-950 p-4 border-2 border-gray-800 rounded-lg mb-4 w-full h-full flex-grow flex flex-col">
                         <h3 class="text-2xl font-semibold mb-2"><i class="fa-solid fa-code"></i> {l10n.education.devops_course.title}</h3>
                         <p class="text-sm font-normal text-gray-500 mb-2">{l10n.education.devops_course.provider_date}</p>
-                        <div class="flex flex-wrap mt-auto">
-                            <a class="mr-2" href="https://wiki.merionet.ru/merion-academy/courses/devops-inzhener-s-nulya/">
-                                <div class="bg-gray-800 text-white focus:border-2 hover:border-2 focus:border-lisiy-accent-400 hover:border-lisiy-accent-400 border-2 border-gray-800 transition font-medium rounded-md p-2 size-fit mr-2 mt-2">
+                        <div class="flex flex-wrap items-end">
+                            <a href="https://wiki.merionet.ru/merion-academy/courses/devops-inzhener-s-nulya/">
+                                <Button>
                                     <i class="fa-solid fa-arrow-right mr-1"></i> wiki.merionet.ru
-                                </div>
+                                </Button>
                             </a>
-                            <a class="mr-2" href="https://static.arlcrow.site/devops-cert.pdf">
-                                <div class="bg-gray-800 text-white focus:border-2 hover:border-2 focus:border-lisiy-accent-400 hover:border-lisiy-accent-400 border-2 border-gray-800 transition font-medium rounded-md p-2 size-fit mr-2 mt-2">
+                            <a href="https://static.arlcrow.site/devops-cert.pdf">
+                                <Button>
                                     <i class="fa-solid fa-award-simple mr-1"></i> {l10n.certificate} (PDF)
-                                </div>
+                                </Button>
                             </a>
                         </div>
                     </div>
@@ -246,10 +248,10 @@ let l10n = await getLocaleJson(locale as string);
             <h2 class="text-3xl font-bold mb-4 flex items-center"><i class="text-lisiy-accent-400 fa-solid fa-star mr-2"></i> {l10n.achievements.title}</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="flex flex-col">
-                    <div class="bg-lisiy-bg-950 p-3 border-2 border-gray-800 border-gray-500 rounded-lg mb-4">
+                    <div class="bg-lisiy-bg-950 p-3 border-2 border-gray-800 rounded-lg mb-4">
                         <h3 class="text-2xl font-semibold"><i class="fa-solid fa-trophy text-lisiy-accent-500"></i> {l10n.achievements.profile_achievements.title}</h3>
                     </div>
-                    <div class="bg-lisiy-bg-950 p-4 border-2 border-gray-800 rounded-lg mb-4 w-full flex flex-col h-full">
+                    <div class="mb-4 flex flex-col w-full h-full bg-lisiy-bg-950 p-4 border-2 border-gray-800 rounded-lg">
                         <h3 class="text-xl font-semibold mb-2">
                             <i class="fa-solid fa-user-graduate"></i> {l10n.achievements.profile_achievements.description}
                         </h3>
@@ -258,20 +260,20 @@ let l10n = await getLocaleJson(locale as string);
                             <li><span class="fa-li"><i class="fa-solid fa-trophy text-lisiy-accent-400"></i></span> {l10n.achievements.profile_achievements.place}</li>
                             <li><span class="fa-li"><i class="fa-solid fa-project-diagram text-lisiy-accent-400"></i></span> {l10n.achievements.profile_achievements.project}</li>
                         </ul>
-                        <div class="flex flex-grow items-end mt-4">
+                        <div class="flex flex-grow items-end">
                             <a href="https://static.arlcrow.site/II.pdf">
-                                <div class="bg-gray-800 text-white focus:border-2 hover:border-2 focus:border-lisiy-accent-400 hover:border-lisiy-accent-400 border-2 border-gray-800 transition font-medium rounded-md p-2 size-fit mr-2">
+                                <Button>
                                     <i class="fa-solid fa-award-simple mr-1"></i> {l10n.diploma} (PDF)
-                                </div>
+                                </Button>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col">
-                    <div class="bg-lisiy-bg-950 p-3 border-2 border-gray-800 border-gray-500 rounded-lg mb-4">
+                    <div class="bg-lisiy-bg-950 p-3 border-2 border-gray-800 rounded-lg mb-4">
                         <h3 class="text-2xl font-semibold"><i class="fa-solid fa-medal text-lisiy-accent-500"></i> {l10n.achievements.sports_achievements.title}</h3>
                     </div>
-                    <div class="bg-lisiy-bg-950 flex flex-col p-4 border-2 border-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow mb-4">
+                    <div class="bg-lisiy-bg-950 flex flex-col p-4 border-2 border-gray-800 rounded-lg mb-4">
                         <ul class="fa-ul ml-6 space-y-2">
                             <li><span class="fa-li"><i class="fa-solid fa-trophy text-lisiy-accent-500"></i></span> {l10n.achievements.sports_achievements.p1}</li>
                             <li><span class="fa-li"><i class="fa-solid fa-globe text-lisiy-accent-500"></i></span> {l10n.achievements.sports_achievements.p2}</li>
