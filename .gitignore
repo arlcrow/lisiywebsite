@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+.vscode/
+
+.pnp.cjs
+.pnp.loader.mjs
+.yarn/
