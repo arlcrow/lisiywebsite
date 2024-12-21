@@ -1,0 +1,203 @@
+.garland {
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  pointer-events: none;
+}
+
+.garland-module {
+  display: flex;
+  position: relative;
+  animation: garland-animation-fadein 0.4s forwards;
+}
+
+.garland-module-lamp {
+  color: #99a2ad;
+}
+.garland-module-shadow {
+  color: transparent;
+}
+.garland-module .garland-module-lamp,
+.garland-module .garland-module-shadow {
+  will-change: transform;
+  transform: translateZ(0);
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(24, end);
+}
+.garland-module-item {
+  z-index: 1;
+  overflow: visible;
+  color: theme('colors.gray.700');;
+}
+.garland-module-item-1 {
+  margin-top: -5px;
+  margin-left: -9px;
+}
+[dir="rtl"] .garland-module-item-1 {
+  margin-left: 0;
+  margin-right: -9px;
+}
+.garland-module-item-1 .garland-module-lamp,
+.garland-module-item-1 .garland-module-shadow {
+  animation-name: garland-animation-1;
+}
+.garland-module-item-2 {
+  margin-top: -3px;
+  margin-left: -8px;
+}
+[dir="rtl"] .garland-module-item-2 {
+  margin-left: 0;
+  margin-right: -8px;
+}
+.garland-module-item-2 .garland-module-lamp,
+.garland-module-item-2 .garland-module-shadow {
+  animation-name: garland-animation-2;
+}
+.garland-module-item-3 {
+  margin-top: -8px;
+  margin-left: -8px;
+}
+[dir="rtl"] .garland-module-item-3 {
+  margin-left: 0;
+  margin-right: -8px;
+}
+.garland-module-item-3 .garland-module-lamp,
+.garland-module-item-3 .garland-module-shadow {
+  animation-name: garland-animation-3;
+}
+.garland-module-item-4 {
+  margin-top: -6px;
+  margin-left: -8px;
+}
+[dir="rtl"] .garland-module-item-4 {
+  margin-left: 0;
+  margin-right: -8px;
+}
+.garland-module-item-4 .garland-module-lamp,
+.garland-module-item-4 .garland-module-shadow {
+  animation-name: garland-animation-4;
+}
+.garland-module-item-5 {
+  margin-top: -7px;
+  margin-left: -10px;
+}
+[dir="rtl"] .garland-module-item-5 {
+  margin-left: 0;
+  margin-right: -10px;
+}
+.garland-module-item-5 .garland-module-lamp,
+.garland-module-item-5 .garland-module-shadow {
+  animation-name: garland-animation-5;
+}
+@keyframes garland-animation-fadein {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes garland-animation-1 {
+  0% {
+    color: theme('colors.sky.600');
+  }
+  20% {
+    color: theme('colors.emerald.600');
+  }
+  40% {
+    color: theme('colors.orange.600');
+  }
+  60% {
+    color: theme('colors.rose.600');
+  }
+  80% {
+    color: theme('colors.violet.600');
+  }
+  to {
+    color: theme('colors.sky.600');
+  }
+}
+@keyframes garland-animation-2 {
+  0% {
+    color: theme('colors.rose.600');
+  }
+  20% {
+    color: theme('colors.orange.600');
+  }
+  40% {
+    color: theme('colors.violet.600');
+  }
+  60% {
+    color: theme('colors.sky.600');
+  }
+  80% {
+    color: theme('colors.emerald.600');
+  }
+  to {
+    color: theme('colors.rose.600');
+  }
+}
+@keyframes garland-animation-3 {
+  0% {
+    color: theme('colors.emerald.600');
+  }
+  20% {
+    color: theme('colors.sky.600');
+  }
+  40% {
+    color: theme('colors.violet.600');
+  }
+  60% {
+    color: theme('colors.rose.600');
+  }
+  80% {
+    color: theme('colors.orange.600');
+  }
+  to {
+    color: theme('colors.emerald.600');
+  }
+}
+@keyframes garland-animation-4 {
+  0% {
+    color: theme('colors.orange.600');
+  }
+  20% {
+    color: theme('colors.rose.600');
+  }
+  40% {
+    color: theme('colors.emerald.600');
+  }
+  60% {
+    color: theme('colors.sky.600');
+  }
+  80% {
+    color: theme('colors.violet.600');
+  }
+  to {
+    color: theme('colors.orange.600');
+  }
+}
+@keyframes garland-animation-5 {
+  0% {
+    color: theme('colors.violet.600');
+  }
+  20% {
+    color: theme('colors.sky.600');
+  }
+  40% {
+    color: theme('colors.emerald.600');
+  }
+  60% {
+    color: theme('colors.orange.600');
+  }
+  80% {
+    color: theme('colors.rose.600');
+  }
+  to {
+    color: theme('colors.violet.600');
+  }
+}

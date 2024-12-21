@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import node from '@astrojs/node';
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
   i18n: {
@@ -12,7 +14,7 @@ export default defineConfig({
       redirectToDefaultLocale: false
     }
   },
-  integrations: [tailwind()],
+  integrations: [tailwind(), partytown()],
   output: "server",
   adapter: node({
     mode: 'standalone',

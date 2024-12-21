@@ -4,6 +4,10 @@ import '@fontsource/ibm-plex-sans/500.css';
 import '@fontsource/ibm-plex-sans/600.css';
 import '@fontsource/ibm-plex-sans/700.css';
 
+import Snowflakes from "../components/snowflakes/Snowflakes.astro";
+import Garland from "../components/garland/Garland.astro";
+import GarlandHead from "../components/garland/GarlandHead.astro";
+
 interface Props {
 	title: string;
 	lang: string | undefined;
@@ -31,41 +35,19 @@ const { title, lang } = Astro.props;
 		<script src="https://static.arlcrow.site/fa/js/brands.min.js" defer></script>
 		<script src="https://static.arlcrow.site/fa/js/duotone.min.js" defer></script>
 		<script src="https://static.arlcrow.site/fa/js/fontawesome.js" defer></script>
-		<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.light.min.js"></script>
+
+		<Snowflakes />
+		<GarlandHead />
+
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-lisiy-bg-950 text-lisiy-bg-100">
+	<body class="bg-zinc-950 text-gray-100">
+		<Garland />
 		<slot />
 	</body>
 </html>
 
-<style is:global>
-	.snowflake__inner:before {
-		width: .75rem;
-		height: .75rem;
-		background-color: white;
-		-webkit-mask: url('https://static.arlcrow.site/fa/svgs/solid/snowflake.svg') no-repeat center;
-		mask: url('https://static.arlcrow.site/fa/svgs/solid/snowflake.svg') no-repeat center;
-		-webkit-mask-size: contain;
-		mask-size: contain;
-	}
-</style>
-
 <script type="text/javascript">
-	document.addEventListener("DOMContentLoaded", () => {
-		if (window.Snowflakes) {
-			new Snowflakes({
-				color: "#ffffff",
-				count: 62,
-				maxOpacity: 0.85,
-				maxSize: 20,
-				zIndex: 10,
-			});
-		} else {
-			console.error("Snowflakes is not defined. Check script loading.");
-		}
-	});
-
 	console.log("%cуйди отсюда👻", "font-size: 24px; font-weight: bold;")
 </script>
