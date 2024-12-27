@@ -1,0 +1,102 @@
+---
+import Button from "../ui/Button.astro";
+
+const { l10n } = Astro.props;
+---
+
+<section class="mt-6" id="achievements">
+  <h2 class="text-3xl font-bold mb-4 flex items-center">
+    <i class="text-accent-400 fa-solid fa-star mr-2"></i>
+    {l10n.achievements.title}
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="flex flex-col">
+      <div class="bg-zinc-950 p-3 border-2 border-gray-800 rounded-lg mb-4">
+        <h3 class="text-2xl font-semibold">
+          <i class="fa-solid fa-trophy text-accent-500"></i>
+          {l10n.achievements.profile_achievements.title}
+        </h3>
+      </div>
+      <div
+        class="mb-4 flex flex-col w-full h-full bg-zinc-950 p-4 border-2 border-gray-800 rounded-lg"
+      >
+        <h3 class="text-xl font-semibold mb-2">
+          <i class="fa-solid fa-user-graduate"></i>
+          {l10n.achievements.profile_achievements.description}
+        </h3>
+        <p class="text-sm font-normal text-gray-500 mb-2">
+          {l10n.achievements.profile_achievements.year}
+        </p>
+        <ul class="fa-ul ml-6 space-y-2">
+          <li>
+            <span class="fa-li"
+              ><i class="fa-solid fa-trophy text-accent-400"></i></span
+            >
+            {l10n.achievements.profile_achievements.place}
+          </li>
+          <li>
+            <span class="fa-li"
+              ><i class="fa-solid fa-project-diagram text-accent-400"
+              ></i></span
+            >
+            {l10n.achievements.profile_achievements.project}
+          </li>
+        </ul>
+        <div class="flex flex-grow items-end">
+          <a href="https://static.arlcrow.site/II.pdf">
+            <Button>
+              <i class="fa-solid fa-award-simple mr-1"></i>
+              {l10n.diploma} (PDF)
+            </Button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col">
+      <div class="bg-zinc-950 p-3 border-2 border-gray-800 rounded-lg mb-4">
+        <h3 class="text-2xl font-semibold">
+          <i class="fa-solid fa-medal text-accent-500"></i>
+          {l10n.achievements.sports_achievements.title}
+        </h3>
+      </div>
+      <div
+        class="bg-zinc-950 flex flex-col p-4 border-2 border-gray-800 rounded-lg mb-4"
+      >
+        <ul class="fa-ul ml-6 space-y-2">
+          <li>
+            <span class="fa-li"
+              ><i class="fa-solid fa-trophy text-accent-500"></i></span
+            >
+            {l10n.achievements.sports_achievements.p1}
+          </li>
+          <li>
+            <span class="fa-li"
+              ><i class="fa-solid fa-globe text-accent-500"></i></span
+            >
+            {l10n.achievements.sports_achievements.p2}
+          </li>
+          <li>
+            <span class="fa-li"
+              ><i class="fa-solid fa-user-friends text-accent-500"
+              ></i></span
+            >
+            {l10n.achievements.sports_achievements.p3}
+          </li>
+          <li>
+            <span class="fa-li"
+              ><i class="fa-solid fa-medal text-accent-500"></i></span
+            >
+            {l10n.achievements.sports_achievements.p4}
+          </li>
+          <li>
+            <span class="fa-li"
+              ><i class="fa-solid fa-people-group text-accent-500"
+              ></i></span
+            >
+            {l10n.achievements.sports_achievements.p5}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

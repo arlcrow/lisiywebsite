@@ -1,13 +1,8 @@
 ---
-import '@fontsource/ibm-plex-sans/400.css';
-import '@fontsource/ibm-plex-sans/500.css';
-import '@fontsource/ibm-plex-sans/600.css';
-import '@fontsource/ibm-plex-sans/700.css';
-
-import Garland from "../components/Garland.astro";
+import ChristmasGarland from "../components/ui/ChristmasGarland.astro";
 
 import '../styles/snowflakes.css';
-import '../styles/garland.css';
+import '../styles/christmasgarland.css';
 
 interface Props {
 	title: string;
@@ -33,60 +28,29 @@ const { title, lang } = Astro.props;
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		<script src="https://static.arlcrow.site/fa/js/solid.min.js" defer></script>
-		<script src="https://static.arlcrow.site/fa/js/brands.min.js" defer></script>
-		<script src="https://static.arlcrow.site/fa/js/duotone.min.js" defer></script>
-		<script src="https://static.arlcrow.site/fa/js/fontawesome.js" defer></script>
+		<script src="https://static.arlcrow.site/fa/js/solid.min.js"></script>
+		<script src="https://static.arlcrow.site/fa/js/brands.min.js"></script>
+		<script src="https://static.arlcrow.site/fa/js/duotone.min.js"></script>
+		<script src="https://static.arlcrow.site/fa/js/fontawesome.js"></script>
 
-		<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.light.min.js" defer></script>
+		<!--  <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.light.min.js"></script> -->
 
-		<link rel="stylesheet" href="/dist/styles/snowflakes.css" />
-		<link rel="stylesheet" href="/dist/styles/garland.css" />
+    <script src="../utils/lenis"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://static.arlcrow.site/fonts/space-grotesk-cyrillic/stylesheet.css"
+    />
 
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body class="bg-zinc-950 text-gray-100">
-		<Garland />
+		<ChristmasGarland />
 		<slot />
 	</body>
 </html>
 
-<script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", () => {
-    if (window.Snowflakes) {
-      new Snowflakes({
-        color: "#ffffff",
-        count: 62,
-        maxOpacity: 0.85,
-        maxSize: 20,
-        zIndex: 10,
-      });
-    } else {
-      console.error(
-        "ERROR: Snowflakes is not defined. Open issue on GitLab: https://gitlab.arlcrow.site/arlcrow123/lisiywebsite/issues"
-      );
-    }
-  });
-
-  function updateGarland() {
-    var garland = document.getElementById("garland");
-    var garlandModule = garland.querySelector(".garland-module");
-    var garlandModulesCount = Math.ceil(window.innerWidth / 289);
-
-    garland.innerHTML = "";
-
-    for (var i = 0; i < garlandModulesCount; i++) {
-      var clone = garlandModule.cloneNode(true);
-      garland.appendChild(clone);
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    updateGarland();
-  });
-
-  window.addEventListener("resize", updateGarland);
-
-  console.log("%cуйди отсюда👻", "font-size: 24px; font-weight: bold;");
-</script>
+<script src="../utils/snowflakes.js"></script>
+<script src="../utils/christmasgarland.js"></script>
+<script src="../utils/easteregg.js"></script>

@@ -1,0 +1,30 @@
+---
+import time from "../../utils/time.js";
+const year = time.year;
+const { l10n } = Astro.props;
+---
+
+<section class="mt-6" id="footer">
+  <div class="text-gray-500 pt-2 pb-2 flex flex-wrap items-center">
+    <div class="text-gray-500 pt-2 pb-2 flex flex-wrap items-center">
+      <div class="mr-1 mt-1">
+        <i class="fa-solid fa-copyright"></i>
+        {year} Matvey Aleksandrov &lt;matvey@arlcrow.site&gt;.
+      </div>
+      <div class="mr-1 mt-1">
+        {l10n.footer.license}
+        <a
+          class="text-sky-600 focus:hover:text-sky-300 hover:text-sky-300 transition"
+          href="https://gitlab.arlcrow.site/arlcrow123/lisiywebsite/-/blob/master/license"
+          >MIT</a
+        >.
+      </div>
+      <div class="mt-1">
+        {l10n.footer.source_code}: <a
+          class="text-sky-600 focus:hover:text-sky-300 hover:text-sky-300 transition"
+          href="https://gitlab.arlcrow.site/arlcrow123/lisiywebsite"
+          ><i class="fa-brands fa-gitlab"></i> GitLab</a>
+      </div>
+    </div>
+  </div>
+</section>

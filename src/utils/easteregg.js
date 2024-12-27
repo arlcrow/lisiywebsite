@@ -1,0 +1,1 @@
+console.log("%cуйди отсюда👻", "font-size: 24px; font-weight: bold;");

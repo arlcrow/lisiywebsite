@@ -6,10 +6,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
+        sans: ["Space Grotesk Variable", ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        "lisiy-accent": {
+        "accent": {
           50: "#fff9ec",
           100: "#fff2d3",
           200: "#ffe2a5",
