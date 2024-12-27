@@ -8,7 +8,7 @@
     "start": "astro dev",
     "check": "astro check",
     "build": "astro check && astro build",
-    "preview": "bun run ./dist/server/entry.mjs",
+    "preview": "node run ./dist/server/entry.mjs",
     "astro": "astro"
   },
   "dependencies": {
@@ -19,8 +19,7 @@
     "lenis": "^1.1.18",
     "magic-snowflakes": "^7.0.1",
     "sharp": "^0.33.5",
-    "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.3"
+    "tailwindcss": "^3.4.15"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",

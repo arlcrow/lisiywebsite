@@ -1,12 +1,12 @@
 ---
 import ChristmasGarland from "../components/ui/ChristmasGarland.astro";
 
-import '../styles/snowflakes.css';
-import '../styles/christmasgarland.css';
+import "../styles/snowflakes.css";
+import "../styles/christmasgarland.css";
 
 interface Props {
-	title: string;
-	lang: string | undefined;
+  title: string;
+  lang: string | undefined;
 }
 
 const { title, lang } = Astro.props;
@@ -14,26 +14,32 @@ const { title, lang } = Astro.props;
 
 <!doctype html>
 <html lang={lang}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="description" content="Matvey Aleksandrov — arlcrow123" />
-		<meta name="keywords" content="Матвей, Александров, Матвей Александров, arlcrow123, Python разработчик, DevOps, Matvey Aleksandrov, Matvey, Aleksandrov" />
-		<meta name="author" content="Matvey Aleksandrov" />
-		<meta property="og:title" content="Matvey Aleksandrov" />
-		<meta property="og:description" content="Matvey Aleksandrov — arlcrow123" />
-		<meta property="og:url" content="https://arlcrow.site" />
-		<meta name="twitter:title" content="Matvey Aleksandrov" />
-		<meta name="twitter:description" content="Matvey Aleksandrov — arlcrow123" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Matvey Aleksandrov — arlcrow123" />
+    <meta
+      name="keywords"
+      content="Матвей, Александров, Матвей Александров, arlcrow123, Python разработчик, DevOps, Matvey Aleksandrov, Matvey, Aleksandrov"
+    />
+    <meta name="author" content="Matvey Aleksandrov" />
+    <meta property="og:title" content="Matvey Aleksandrov" />
+    <meta property="og:description" content="Matvey Aleksandrov — arlcrow123" />
+    <meta property="og:url" content="https://arlcrow.site" />
+    <meta name="twitter:title" content="Matvey Aleksandrov" />
+    <meta
+      name="twitter:description"
+      content="Matvey Aleksandrov — arlcrow123"
+    />
 
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		<script src="https://static.arlcrow.site/fa/js/solid.min.js"></script>
-		<script src="https://static.arlcrow.site/fa/js/brands.min.js"></script>
-		<script src="https://static.arlcrow.site/fa/js/duotone.min.js"></script>
-		<script src="https://static.arlcrow.site/fa/js/fontawesome.js"></script>
+    <script src="https://static.arlcrow.site/fa/js/solid.min.js"></script>
+    <script src="https://static.arlcrow.site/fa/js/brands.min.js"></script>
+    <script src="https://static.arlcrow.site/fa/js/duotone.min.js"></script>
+    <script src="https://static.arlcrow.site/fa/js/fontawesome.js"></script>
 
-		<!--  <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.light.min.js"></script> -->
+    <!--  <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.light.min.js"></script> -->
 
     <script src="../utils/lenis"></script>
 
@@ -42,13 +48,13 @@ const { title, lang } = Astro.props;
       href="https://static.arlcrow.site/fonts/space-grotesk-cyrillic/stylesheet.css"
     />
 
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="bg-zinc-950 text-gray-100">
-		<ChristmasGarland />
-		<slot />
-	</body>
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-zinc-950 text-gray-100">
+    <ChristmasGarland />
+    <slot />
+  </body>
 </html>
 
 <script src="../utils/snowflakes.js"></script>
