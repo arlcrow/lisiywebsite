@@ -14,4 +14,6 @@ COPY --from=build /temp/dev/node_modules /app/node_modules
 
 COPY --from=build /temp/dev/dist /app/dist
 
+ENV HOST=0.0.0.0
+
 CMD ["bun", "run", "/app/dist/server/entry.mjs"]
