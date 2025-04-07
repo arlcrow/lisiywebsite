@@ -2,11 +2,11 @@ FROM oven/bun:1 AS build
 
 WORKDIR /temp/dev
 
-COPY package.json bun.lock /temp/dev/
+COPY . /temp/dev/
 
 RUN bun install && bun astro build
 
-FROM oven/bun:1 AS prod
+FROM oven/bun:1
 
 WORKDIR /app
 
