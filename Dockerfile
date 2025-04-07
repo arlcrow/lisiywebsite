@@ -1,24 +1,19 @@
-FROM node:latest AS build
+FROM oven/bun:1 AS build
 
-WORKDIR /app
+WORKDIR /temp/dev
 
-COPY package.json yarn.lock ./
+COPY package.json bun.lock /temp/dev/
 
-RUN yarn install
+RUN bun install && bun astro build
 
-COPY . .
+FROM oven/bun:1
 
-RUN yarn build
+WORKDIR /temp/dev
 
-FROM node:latest
+COPY --from=build /temp/dev/node_modules node_modules
 
-WORKDIR /app
+COPY --from=build /temp/dev/dist dist
 
-ENV HOST=0.0.0.0
-ENV PORT=8085
+USER BUN
 
-EXPOSE 8085
-
-COPY --from=build /app .
-
-CMD ["node", "dist/server/entry.mjs"]
+CMD ["bun", "run", "dist/server/entry.mjs"]
