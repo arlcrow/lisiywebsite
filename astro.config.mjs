@@ -1,6 +1,6 @@
-import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
-import node from '@astrojs/node';
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,12 +9,14 @@ export default defineConfig({
     locales: ["en", "ru"],
     routing: {
       prefixDefaultLocale: true,
-      redirectToDefaultLocale: false
-    }
+      redirectToDefaultLocale: false,
+    },
   },
-  integrations: [tailwind()],
   output: "server",
   adapter: node({
-    mode: 'standalone',
+    mode: "standalone",
   }),
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

@@ -3,11 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 import { getLocaleJson } from "../../utils/translations";
 
 import AboutMe from "../../components/sections/AboutMe.astro";
-import Skills from "../../components/sections/Skills.astro";
-import Experience from "../../components/sections/Experience.astro";
-import Portfolio from "../../components/sections/Portfolio.astro";
-import Education from "../../components/sections/Education.astro";
-import Achievements from "../../components/sections/Achievements.astro";
 import Footer from "../../components/sections/Footer.astro";
 
 let locale = Astro.currentLocale;
@@ -15,13 +10,8 @@ let l10n = await getLocaleJson(locale as string);
 ---
 
 <Layout title={l10n.name} lang={locale}>
-  <main class="mx-auto max-w-screen-lg px-4 mt-6 z-20 relative">
+  <main class="flex flex-col gap-10 items-center justify-center min-h-screen">
     <AboutMe l10n={l10n} />
-    <Skills l10n={l10n} />
-    <Experience l10n={l10n} />
-    <Portfolio l10n={l10n} />
-    <Education l10n={l10n} />
-    <Achievements l10n={l10n} />
     <Footer l10n={l10n} />
   </main>
 </Layout>

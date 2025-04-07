@@ -1,8 +1,6 @@
 ---
-import ChristmasGarland from "../components/ui/ChristmasGarland.astro";
-
-import "../styles/snowflakes.css";
-import "../styles/christmasgarland.css";
+import '../styles/global.css'
+import '@fontsource-variable/geologica'
 
 interface Props {
   title: string;
@@ -39,24 +37,12 @@ const { title, lang } = Astro.props;
     <script src="https://static.arlcrow.site/fa/js/duotone.min.js"></script>
     <script src="https://static.arlcrow.site/fa/js/fontawesome.js"></script>
 
-    <!--  <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.light.min.js"></script> -->
-
-    <script src="../utils/lenis"></script>
-
-    <link
-      rel="stylesheet"
-      href="https://static.arlcrow.site/fonts/space-grotesk-cyrillic/stylesheet.css"
-    />
-
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body class="bg-zinc-950 text-gray-100">
-    <ChristmasGarland />
     <slot />
   </body>
 </html>
 
-<script src="../utils/snowflakes.js"></script>
-<script src="../utils/christmasgarland.js"></script>
 <script src="../utils/easteregg.js"></script>

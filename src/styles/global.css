@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geologica Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-fire-50: #fff9eb;
+  --color-fire-100: #fdeec8;
+  --color-fire-200: #fcda8b;
+  --color-fire-300: #fac24f;
+  --color-fire-400: #f9aa26;
+  --color-fire-500: #f3880d;
+  --color-fire-600: #d76408;
+  --color-fire-700: #a9400a;
+  --color-fire-800: #91340f;
+  --color-fire-900: #772b10;
+  --color-fire-950: #441404;
+}
