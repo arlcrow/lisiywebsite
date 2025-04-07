@@ -10,8 +10,8 @@ FROM oven/bun:1
 
 WORKDIR /temp/dev
 
-COPY --from=build /temp/dev/node_modules node_modules
+COPY --from=build /temp/dev/node_modules /temp/dev/node_modules
 
-COPY --from=build /temp/dev/dist dist
+COPY --from=build /temp/dev/dist /temp/dev/dist
 
-CMD ["bun", "run", "dist/server/entry.mjs"]
+CMD ["bun", "run", "/temp/dev/dist/server/entry.mjs"]
