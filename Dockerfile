@@ -14,6 +14,4 @@ COPY --from=build /temp/dev/node_modules node_modules
 
 COPY --from=build /temp/dev/dist dist
 
-USER BUN
-
 CMD ["bun", "run", "dist/server/entry.mjs"]
