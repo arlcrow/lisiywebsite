@@ -6,7 +6,7 @@ COPY package.json bun.lock /temp/dev/
 
 RUN bun install && bun astro build
 
-FROM oven/bun:1
+FROM oven/bun:1 AS prod
 
 WORKDIR /app
 
