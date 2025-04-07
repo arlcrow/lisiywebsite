@@ -8,10 +8,10 @@ RUN bun install && bun astro build
 
 FROM oven/bun:1
 
-WORKDIR /temp/dev
+WORKDIR /app
 
-COPY --from=build /temp/dev/node_modules /temp/dev/node_modules
+COPY --from=build /temp/dev/node_modules /app/node_modules
 
-COPY --from=build /temp/dev/dist /temp/dev/dist
+COPY --from=build /temp/dev/dist /app/dist
 
-CMD ["bun", "run", "/temp/dev/dist/server/entry.mjs"]
+CMD ["bun", "run", "/app/dist/server/entry.mjs"]
