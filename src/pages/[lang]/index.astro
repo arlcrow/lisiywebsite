@@ -3,7 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 import { getLocaleJson } from "../../utils/translations";
 
 import AboutMe from "../../components/sections/AboutMe.astro";
-import Footer from "../../components/sections/Footer.astro";
 
 let locale = Astro.currentLocale;
 let l10n = await getLocaleJson(locale as string);
@@ -12,6 +11,5 @@ let l10n = await getLocaleJson(locale as string);
 <Layout title={l10n.name} lang={locale}>
   <main class="flex flex-col gap-10 items-center justify-center min-h-screen">
     <AboutMe l10n={l10n} />
-    <Footer l10n={l10n} />
   </main>
 </Layout>

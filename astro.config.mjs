@@ -2,6 +2,8 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import node from "@astrojs/node";
 
+import icon from "astro-icon";
+
 // https://astro.build/config
 export default defineConfig({
   i18n: {
@@ -12,11 +14,16 @@ export default defineConfig({
       redirectToDefaultLocale: false,
     },
   },
+
   output: "server",
+
   adapter: node({
     mode: "standalone",
   }),
+
   vite: {
     plugins: [tailwindcss()],
   },
+
+  integrations: [icon()],
 });
