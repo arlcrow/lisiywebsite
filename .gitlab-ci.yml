@@ -1,42 +1,41 @@
-stages:
-  - build
-  - deploy
-
 variables:
-  DOCKER_HOST: tcp://docker:2375
-  DOCKER_TLS_CERTDIR: ""
+  IMAGE_NAME: ghcr.io/arlcrow/lisiywebsite
 
-build:
-  image: docker:latest
-  services:
-    - docker:dind
+build_image:
   stage: build
-  before_script:
-    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
-  script:
-    - |
-      if [[ "$CI_COMMIT_BRANCH" == "master" ]]; then
-        docker build --cache-from=$CI_REGISTRY_IMAGE:latest -t $CI_REGISTRY_IMAGE:latest .
-        docker push $CI_REGISTRY_IMAGE:latest
-      else
-        docker build --cache-from=$CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH -t $CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH .
-        docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH
-      fi
-  rules:
-    - if: $CI_COMMIT_BRANCH == "master"
-    - if: $CI_COMMIT_BRANCH != "master"
-
-deploy:
-  stage: deploy
   image:
-    name: kroniak/ssh-client:latest
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  variables:
+    IMAGE_TAG_BRANCH: ""
+    IMAGE_TAG_COMMIT: ""
+    DOCKERFILE_PATH: Dockerfile
   before_script:
-    - eval $(ssh-agent -s)
-    - chmod 400 "$SSH_PRIVATE_KEY"
-    - ssh-add "$SSH_PRIVATE_KEY"
-    - mkdir ~/.ssh
-    - cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
+    - mkdir -pv /kaniko/.docker
+    - echo "{\"auths\":{\"ghcr.io\":{\"auth\":\"$(printf "%s:%s" "arlcrow" "${GITHUB_CI_TOKEN}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
   script:
-    - ssh $SSH_OTHER $SSH_USER@$SSH_HOST $SSH_SCRIPT
-  only:
-    - master
+    - /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile $DOCKERFILE_PATH
+      --destination $IMAGE_TAG_BRANCH
+      --destination $IMAGE_TAG_COMMIT
+      --cache=true
+  rules:
+    - if: $CI_COMMIT_TAG
+      variables:
+        IMAGE_TAG_BRANCH: $IMAGE_NAME:${CI_COMMIT_TAG#v}
+        IMAGE_TAG_COMMIT: $IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+      exists:
+        - $DOCKERFILE_PATH
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      variables:
+        IMAGE_TAG_BRANCH: $IMAGE_NAME:latest
+        IMAGE_TAG_COMMIT: $IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+      exists:
+        - $DOCKERFILE_PATH
+    - if: $CI_COMMIT_BRANCH
+      variables:
+        IMAGE_TAG_BRANCH: $IMAGE_NAME:branch-$CI_COMMIT_REF_SLUG
+        IMAGE_TAG_COMMIT: $IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+      exists:
+        - $DOCKERFILE_PATH
